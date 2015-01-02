@@ -12,6 +12,10 @@
 #include <boost/make_shared.hpp>
 #include <boost/shared_ptr.hpp>
 
+#if defined(_MSC_VER)
+#pragma warning(disable: 4512) // assignment operator could not be generated
+#endif
+
 #if defined( BOOST_NO_CXX11_RVALUE_REFERENCES )
 
 int main()
@@ -27,15 +31,15 @@ public:
     myarg()
     {}
 private:
-    myarg(myarg && other)
+    myarg(myarg && /*other*/)
     {}
-    myarg& operator=(myarg && other)
+    myarg& operator=(myarg && /*other*/)
     {
         return *this;
     }
-    myarg(const myarg & other)
+    myarg(const myarg & /*other*/)
     {}
-    myarg& operator=(const myarg & other)
+    myarg& operator=(const myarg & /*other*/)
     {
         return *this;
     }
@@ -51,11 +55,11 @@ public:
         ref_constructor
     };
 
-    X(myarg &&arg): constructed_by_(move_constructor)
+    X(myarg &&/*arg*/): constructed_by_(move_constructor)
     {}
-    X(const myarg &arg): constructed_by_(const_ref_constructor)
+    X(const myarg &/*arg*/): constructed_by_(const_ref_constructor)
     {}
-    X(myarg &arg): constructed_by_(ref_constructor)
+    X(myarg &/*arg*/): constructed_by_(ref_constructor)
     {}
 
     constructor_id constructed_by_;
