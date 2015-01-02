@@ -37,7 +37,7 @@ public:
         return static_cast< T* >( ::operator new( n * sizeof( T ) ) );
     }
 
-    void deallocate( T * p, std::size_t n )
+    void deallocate( T * p, std::size_t /*n*/ )
     {
         ::operator delete( p );
     }
