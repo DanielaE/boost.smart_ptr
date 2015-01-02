@@ -8,6 +8,10 @@
 // See accompanying file LICENSE_1_0.txt or copy at
 // http://www.boost.org/LICENSE_1_0.txt
 
+#if defined(_MSC_VER)
+#pragma warning(disable: 4624) // 'boost::detail::alignment_of_hack<T>' : destructor could not be generated because a base class destructor is inaccessible or deleted
+#endif
+
 #include <boost/detail/lightweight_test.hpp>
 #include <boost/make_shared.hpp>
 #include <boost/shared_ptr.hpp>
@@ -35,7 +39,7 @@ public:
         return static_cast< T* >( ::operator new( n * sizeof( T ) ) );
     }
 
-    void deallocate( T * p, std::size_t n )
+    void deallocate( T * p, std::size_t /*n*/ )
     {
         ::operator delete( p );
     }
