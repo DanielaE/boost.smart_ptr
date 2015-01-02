@@ -6,6 +6,10 @@
  * Version 1.0. (See accompanying file LICENSE_1_0.txt 
  * or copy at http://boost.org/LICENSE_1_0.txt)
  */
+#if defined(_MSC_VER)
+#pragma warning(disable: 4624) // 'boost::detail::alignment_of_hack<T>' : destructor could not be generated because a base class destructor is inaccessible or deleted
+#endif
+
 #include <boost/detail/lightweight_test.hpp>
 #if !defined(BOOST_NO_CXX11_ALLOCATOR)
 #include <boost/smart_ptr/allocate_shared_array.hpp>
