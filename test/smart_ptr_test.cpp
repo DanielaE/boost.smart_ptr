@@ -22,6 +22,7 @@
 # pragma warning(disable: 4710)  // function not inlined
 # pragma warning(disable: 4711)  // function selected for automatic inline expansion
 # pragma warning(disable: 4514)  // unreferenced inline removed
+# pragma warning(disable: 4996)  // function or variable may be unsafe
 
 #if (BOOST_MSVC >= 1310)
 # pragma warning(disable: 4675)  // resolved overload found with Koenig lookup

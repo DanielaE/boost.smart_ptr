@@ -47,7 +47,7 @@ public:
 
     ByRef(BOOST_RV_REF(movearg)): constructed_by_(move_constructor)
     {}
-    ByRef(const movearg &arg): constructed_by_(const_ref_constructor)
+    ByRef(const movearg &): constructed_by_(const_ref_constructor)
     {}
 
     constructor_id constructed_by_;
