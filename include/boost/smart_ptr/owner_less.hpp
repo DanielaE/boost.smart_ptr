@@ -23,7 +23,7 @@ namespace boost
   namespace detail
   {
     template<typename T, typename U>
-      struct generic_owner_less : public std::binary_function<T, T, bool>
+      struct generic_owner_less
     {
       bool operator()(const T &lhs, const T &rhs) const
       {
