@@ -76,13 +76,6 @@ void test()
     BOOST_TEST( X::instances == 0 );
 
     {
-        std::auto_ptr<X> px( new X( 0 ) );
-        BOOST_TEST( X::instances == 1 );
-    }
-
-    BOOST_TEST( X::instances == 0 );
-
-    {
         boost::shared_ptr<X> px( new X( 0 ) );
         BOOST_TEST( X::instances == 1 );
 

@@ -58,12 +58,6 @@ int main()
     assert_same_type< boost::pointer_to_other< boost::intrusive_ptr<X>, void >::type, boost::intrusive_ptr<void> >();
     assert_same_type< boost::pointer_to_other< boost::intrusive_ptr<void>, Y >::type, boost::intrusive_ptr<Y> >();
 
-    // auto_ptr
-
-    assert_same_type< boost::pointer_to_other< std::auto_ptr<X>, Y >::type, std::auto_ptr<Y> >();
-    assert_same_type< boost::pointer_to_other< std::auto_ptr<X>, void >::type, std::auto_ptr<void> >();
-    assert_same_type< boost::pointer_to_other< std::auto_ptr<void>, Y >::type, std::auto_ptr<Y> >();
-
     // raw pointer
    
     assert_same_type< boost::pointer_to_other< X *, Y >::type, Y * >();
