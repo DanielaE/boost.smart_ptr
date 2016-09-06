@@ -847,7 +847,7 @@ void weak_ptr_constructor()
 #if defined(BOOST_DINKUMWARE_STDLIB) && (BOOST_DINKUMWARE_STDLIB < 306)
 #  define BOOST_OLD_AUTO_PTR
 #endif
-
+#if 0
 void auto_ptr_constructor()
 {
     {
@@ -1137,7 +1137,7 @@ void auto_ptr_constructor()
     BOOST_TEST(X::instances == 0);
     BOOST_TEST(Y::instances == 0);
 }
-
+#endif
 void test()
 {
     default_constructor();
@@ -1145,7 +1145,7 @@ void test()
     deleter_constructor();
     copy_constructor();
     weak_ptr_constructor();
-    auto_ptr_constructor();
+    //auto_ptr_constructor();
 }
 
 } // namespace n_constructors
@@ -1417,7 +1417,7 @@ void conversion_assignment()
         BOOST_TEST(Y::instances == 0);
     }
 }
-
+#if 0
 void auto_ptr_assignment()
 {
     {
@@ -1517,12 +1517,12 @@ void auto_ptr_assignment()
         BOOST_TEST(Y::instances == 0);
     }
 }
-
+#endif
 void test()
 {
     copy_assignment();
     conversion_assignment();
-    auto_ptr_assignment();
+//    auto_ptr_assignment();
 }
 
 } // namespace n_assignment
