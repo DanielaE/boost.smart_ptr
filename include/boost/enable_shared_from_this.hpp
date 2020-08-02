@@ -13,6 +13,12 @@
 //  See http://www.boost.org/libs/smart_ptr/ for documentation.
 //
 
+#if __cplusplus < 201402L
 #include <boost/smart_ptr/enable_shared_from_this.hpp>
-
+#else
+#include <memory>
+namespace boost {
+using std::enable_shared_from_this;
+}
+#endif
 #endif  // #ifndef BOOST_ENABLE_SHARED_FROM_THIS_HPP_INCLUDED

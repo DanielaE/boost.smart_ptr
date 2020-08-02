@@ -13,6 +13,12 @@
 //  See http://www.boost.org/libs/smart_ptr/ for documentation.
 //
 
+#if __cplusplus < 201402L
 #include <boost/smart_ptr/weak_ptr.hpp>
-
+#else
+#include <memory>
+namespace boost {
+ using std::weak_ptr;
+}
+#endif
 #endif  // #ifndef BOOST_WEAK_PTR_HPP_INCLUDED

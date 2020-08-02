@@ -11,6 +11,15 @@
 //
 //  See http://www.boost.org/libs/smart_ptr/ for documentation.
 
+#if __cplusplus < 201402L
 #include <boost/smart_ptr/make_shared.hpp>
-
+#else
+#include <memory>
+namespace boost {
+using std::make_shared;
+using std::make_shared_noinit;
+using std::allocate_shared;
+using std::allocate_shared_noinit;
+}
+#endif
 #endif // #ifndef BOOST_MAKE_SHARED_HPP_INCLUDED
